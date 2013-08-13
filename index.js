@@ -67,7 +67,8 @@ function charybdis (iterator) {
   }
 
   function tryResolve() {
-    if (!stats.pending) { cleanup() }
+    // in streams ended and no operations pending?
+    if (stats.inEnd && !stats.pending) { cleanup() }
     else tick()
   }
 
