@@ -1,7 +1,7 @@
 var chai = require('chai')
 chai.should()
 var ReadStream = require('stream').Readable
-var Q = require('q')
+var Promise = require('bluebird')
 chai.use(require('chai-interface'))
 
 describe('charybdis', function () {
@@ -18,7 +18,7 @@ describe('charybdis', function () {
     var dfds = []
     var allDone = rs.pipe(charybdis(function (obj) {
       if (obj.i % 2) { return false }
-      var dfd = Q.defer()
+      var dfd = Promise.defer()
       dfds.push(dfd)
       return dfd.promise
     }))
@@ -62,7 +62,7 @@ describe('charybdis', function () {
     var rs = new ReadStream({objectMode: true})
     var i = 10
     rs._read = function () {
-      this.push(i ? Q({i: i--}) : null)
+      this.push(i ? Promise.resolve({i: i--}) : null)
     }
 
     rs.pipe(charybdis()).then(function (stats) {

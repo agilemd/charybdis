@@ -1,4 +1,6 @@
-const Q = require('q')
+if (!('Promise' in this)) {
+  var Promise = require('bluebird')
+}
 const EventEmitter = require('events').EventEmitter
 const util = require('util')
 const Writable = require('stream').Writable
@@ -18,7 +20,7 @@ function K(x) { return x }
 function charybdis (iterator) {
   iterator = iterator || K
   const stream = new Writable({objectMode: true})
-  const deferred = Q.defer()
+  const deferred = Promise.defer()
 
   const stats = stream.stats = {
     objects: 0,
