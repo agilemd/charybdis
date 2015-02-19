@@ -1,7 +1,7 @@
 {
   "name": "charybdis",
   "author": "jden <jason@denizac.org>",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "drain an object stream and wrap it in a promise",
   "keywords": [
     "promises",
