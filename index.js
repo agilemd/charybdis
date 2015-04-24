@@ -1,6 +1,4 @@
-if (!('Promise' in this)) {
-  var Promise = require('bluebird')
-}
+var Promise = require('polyfill-promise').noConflict()
 const EventEmitter = require('events').EventEmitter
 const util = require('util')
 const Writable = require('stream').Writable
