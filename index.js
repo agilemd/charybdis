@@ -1,4 +1,4 @@
-var Promise = require('polyfill-promise').noConflict()
+var Promise = require('polyfill-promise')
 const EventEmitter = require('events').EventEmitter
 const util = require('util')
 const Writable = require('stream').Writable

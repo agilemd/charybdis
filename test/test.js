@@ -1,7 +1,7 @@
 var chai = require('chai')
 chai.should()
 var ReadStream = require('stream').Readable
-var Promise = require('bluebird')
+var Promise = require('polyfill-promise')
 chai.use(require('chai-interface'))
 
 describe('charybdis', function () {
